@@ -55,7 +55,6 @@ class App extends Component{
           <SignInSignOut/>
         )} />
       </Switch>
-         
       </div>
     );
   }
