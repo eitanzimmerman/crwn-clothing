@@ -7,8 +7,11 @@ import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
 import SignInSignOut from  './pages/sign/sign-in-sign-out.component';
+import CheckoutPage from './pages/checkout/checkout.component';
+
 import {auth, createUserProfileDocument} from './firebase/firbase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
+import {selectCurrentUser } from './redux/user/user.selector';
 
 class App extends Component{
   constructor(){
@@ -49,7 +52,8 @@ class App extends Component{
       <Switch>
         <Route path='/' exact component={HomePage}/>
         <Route path='/shop' component={ShopPage}/>
-        <Route path='/signin' render={()=>(
+        <Route exact path='/checkout' component={CheckoutPage} />
+        <Route exact path='/signin' render={()=>(
           this.props.currentUser ?
           <Redirect to='/'/> :
           <SignInSignOut/>
@@ -62,7 +66,7 @@ class App extends Component{
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser
+  currentUser: selectCurrentUser(state)
 })
 
 const mapDispatchToProps = dispatch =>({
