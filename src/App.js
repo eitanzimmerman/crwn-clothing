@@ -13,6 +13,7 @@ import {auth, createUserProfileDocument} from './firebase/firbase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import {selectCurrentUser } from './redux/user/user.selector';
 
+
 class App extends Component{
   constructor(){
     super()
@@ -23,7 +24,7 @@ class App extends Component{
   }
   unsusbscribeFromAuth = null;
 
-  componentDidMount(){
+  componentDidMount() {
     const {setCurrentUser} = this.props
 
     this.unsusbscribeFromAuth = auth.onAuthStateChanged(async userAuth=> {
