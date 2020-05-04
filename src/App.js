@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import {GlobalStyle} from './global.styles';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -49,6 +49,7 @@ class App extends Component{
   render(){
     return (
       <div >
+      <GlobalStyle />
       <Header/>
       <Switch>
         <Route path='/' exact component={HomePage}/>

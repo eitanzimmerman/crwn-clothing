@@ -8,7 +8,7 @@ import {auth, createUserProfileDocument} from '../../firebase/firbase.utils';
 import './sign-up.styles.scss';
 
 class SignUp extends Component {
-    constructor(){
+    constructor() {
         super()
 
         this.state = {
